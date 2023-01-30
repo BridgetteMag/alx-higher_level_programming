@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 fndef LISTS_H
+=======
+#ifndef LISTS_H
+>>>>>>> 19a042a20c20d2956e437c8335a3dd91a1461455
 #define LISTS_H
 
 #include <stdlib.h>
