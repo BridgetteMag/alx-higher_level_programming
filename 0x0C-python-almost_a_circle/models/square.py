@@ -1,64 +1,59 @@
 #!/usr/bin/python3
-"""Define Rectangle Class
-"""
+""" Squeare that inherits """
 
 from models.rectangle import Rectangle
 
-
 class Square(Rectangle):
-    """Module Representation of Square
-"""
-
+    """ Class Square """
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialization a Square
-        """
+        """ Constructor """
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
-        """module Square size getter
-        """
+        """ read size """
         return self.width
 
     @size.setter
     def size(self, value):
-        """module Square size setter
-        """
+        """size setter """
         self.width = value
         self.height = value
 
-    def __str__(self):
-        """module string represation of square
-        """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-                                                         self.x,
-                                                         self.y,
-                                                         self.width)
+    def __str(self):
+        """ Print Method """
+        s = "[Square] ({:d}) {:d}/{:d} - {:d}"
+        s = s.format(self.id, self.x, self.y, self.width)
+        return s
 
     def update(self, *args, **kwargs):
-        """module update square
-        """
+        """ Updates square """
         if len(args):
-            for i, arg in enumerate(args):
+            for i, j in enumerate(args):
                 if i == 0:
-                    self.id = arg
+                    self.id = j
                 elif i == 1:
-                    self.size = arg
+                    self.size = j
                 elif i == 2:
-                    self.x = arg
+                    self.x = j
                 elif i == 3:
-                    self.y = arg
-        else:
-            for key, value in kwargs.items():
-                if hasattr(self, key) is True:
-                    setattr(self, key, value)
+                    self.y = j
+
+            else:
+                if "id" in kwargs:
+                    self.id = kwargs["id"]
+                if "size" in kwargs:
+                    self.size = kwargs["size"]
+                if "x" in kwargs:
+                    self.x = kwargs["x"]
+                if "y" in kwargs:
+                    self.y = kwargs["y"]
 
     def to_dictionary(self):
-        """retrun dictonary
-        """
-        return {
-            "id": self.id,
-            "size": self.size,
-            "x": self.x,
-            "y": self.y
-        }
+        """dictionary square """
+        dictionary = {}
+        dictionary["id"] = self.id
+        dictionary["size"] = self.size
+        dictionary["x"] = self.x
+        dictionary["y"] = self.y
+        return dictionary
